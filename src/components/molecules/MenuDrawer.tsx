@@ -10,10 +10,19 @@ import { memo, VFC } from 'react';
 type Props = {
   onClose: () => void;
   isOpen: boolean;
+  onClickHome: () => void;
+  onClickUserManagement: () => void;
+  onClickSetting: () => void;
 };
 
 export const MenuDrawer: VFC<Props> = memo((props) => {
-  const { onClose, isOpen } = props;
+  const {
+    onClose,
+    isOpen,
+    onClickHome,
+    onClickUserManagement,
+    onClickSetting,
+  } = props;
   return (
     <Drawer placement="right" size="xs" onClose={onClose} isOpen={isOpen}>
       <DrawerOverlay>
@@ -24,6 +33,7 @@ export const MenuDrawer: VFC<Props> = memo((props) => {
               variant="ghost"
               w="100%"
               _focus={{ boxShadow: 'none' }}
+              onClick={onClickHome}
             >
               TOP
             </Button>
@@ -32,6 +42,7 @@ export const MenuDrawer: VFC<Props> = memo((props) => {
               variant="ghost"
               w="100%"
               _focus={{ boxShadow: 'none' }}
+              onClick={onClickUserManagement}
             >
               User
             </Button>
@@ -40,6 +51,7 @@ export const MenuDrawer: VFC<Props> = memo((props) => {
               variant="ghost"
               w="100%"
               _focus={{ boxShadow: 'none' }}
+              onClick={onClickSetting}
             >
               Setting
             </Button>
