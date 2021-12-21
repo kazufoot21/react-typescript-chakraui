@@ -1,18 +1,8 @@
-import {
-  Box,
-  Flex,
-  Heading,
-  Link,
-  IconButton,
-  Drawer,
-  DrawerOverlay,
-  DrawerContent,
-  DrawerBody,
-  Button,
-  useDisclosure,
-} from '@chakra-ui/react';
+import { Box, Flex, Heading, Link, useDisclosure } from '@chakra-ui/react';
 import { memo, VFC } from 'react';
-import { HamburgerIcon } from '@chakra-ui/icons';
+
+import { MenuIconButton } from '../../atoms/button/MenuIconButton';
+import { MenuDrawer } from '../../molecules/MenuDrawer';
 
 export const Header: VFC = memo(() => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -43,51 +33,9 @@ export const Header: VFC = memo(() => {
           </Box>
           <Link>Setting</Link>
         </Flex>
-        <IconButton
-          aria-label="メニューボタン"
-          icon={<HamburgerIcon />}
-          size="sm"
-          variant="unstyled"
-          display={{ base: 'block', md: 'none' }}
-          onClick={onOpen}
-          pos="absolute"
-          top="1"
-          right="2"
-          _focus={{ boxShadow: 'none' }}
-        />
+        <MenuIconButton onOpen={onOpen} />
       </Flex>
-      <Drawer placement="right" size="xs" onClose={onClose} isOpen={isOpen}>
-        <DrawerOverlay>
-          <DrawerContent>
-            <DrawerBody pr={0} bg="gray.100">
-              <Button
-                colorScheme="teal"
-                variant="ghost"
-                w="100%"
-                _focus={{ boxShadow: 'none' }}
-              >
-                TOP
-              </Button>
-              <Button
-                colorScheme="teal"
-                variant="ghost"
-                w="100%"
-                _focus={{ boxShadow: 'none' }}
-              >
-                User
-              </Button>
-              <Button
-                colorScheme="teal"
-                variant="ghost"
-                w="100%"
-                _focus={{ boxShadow: 'none' }}
-              >
-                Setting
-              </Button>
-            </DrawerBody>
-          </DrawerContent>
-        </DrawerOverlay>
-      </Drawer>
+      <MenuDrawer isOpen={isOpen} onClose={onClose} />
     </>
   );
 });
