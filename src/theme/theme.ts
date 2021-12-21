@@ -6,6 +6,9 @@ const theme = extendTheme({
       body: {
         backgroundColor: 'gray.100',
         color: 'gray.800',
+        // components: {
+        //   Button: { baseStyle: { _focus: { boxShadow: 'none' } } },
+        // },
       },
     },
   },
