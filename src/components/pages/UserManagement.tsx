@@ -10,13 +10,15 @@ import { memo, VFC, useEffect, useCallback } from 'react';
 import { UserCard } from '../organisms/user/UserCard';
 import { useAllUser } from '../../hooks/userAllUser';
 import { useSelectUser } from '../../hooks/useSelectUser';
+import { useLoginUser } from '../../hooks/useLoginUser';
 import { UserDetailModal } from '../organisms/user/UserDetailModal';
 
 export const UserManagement: VFC = memo(() => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { getUsers, users, loading } = useAllUser();
   const { onSelectUser, selectUser } = useSelectUser();
-  console.log(selectUser);
+  const { loginUser } = useLoginUser();
+  console.log(loginUser);
 
   useEffect(() => getUsers(), []);
 
