@@ -1,11 +1,4 @@
-import {
-  Box,
-  Flex,
-  Heading,
-  Link,
-  useCallbackRef,
-  useDisclosure,
-} from '@chakra-ui/react';
+import { Box, Flex, Heading, Link, useDisclosure } from '@chakra-ui/react';
 import { memo, useCallback, VFC } from 'react';
 import { useHistory } from 'react-router-dom';
 
